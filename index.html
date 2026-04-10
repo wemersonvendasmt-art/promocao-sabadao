@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <title>Sabadão Coagro — Promoção FDS</title>
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+    :root{
+      --verde:#2d6a27; --verde2:#3a8a32;
+      --laranja:#e87722; --laranja2:#ff9a3c;
+      --bg:#0d0d0d; --bg2:#141414; --bg3:#1a1a1a;
+      --card:#1e1e1e; --border:#2a2a2a;
+      --text:#f0f0f0; --text2:#aaa;
+      --radius:12px; --shadow:0 4px 24px rgba(0,0,0,.5);
+      --maxw: 1240px;
+    }
+
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{
+      background:var(--bg); color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+      min-height:100vh;
+      min-height:100dvh;
+      overflow-x:hidden;
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    .top-bar{
+      height:4px;
+      background:linear-gradient(90deg,var(--verde),var(--laranja),var(--verde));
+      background-size:200% 100%;
+      animation:slide 3s linear infinite
+    }
+    @keyframes slide{0%{background-position:0%}100%{background-position:200%}}
+
+    header{
+      background:
+        linear-gradient(135deg,#0a1f09 0%,#0d0d0d 50%,#1a0f00 100%);
+      border-bottom:1px solid var(--border);
+      position:sticky; top:0; z-index:1000;
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      padding:
+        calc(14px + env(safe-area-inset-top))
+        16px
+        14px;
+    }
+    .header-inner{
+      max-width: var(--maxw);
+      margin: 0 auto;
+      text-align:center;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .brand img{
+      height:52px;
+      width:auto;
+      max-width:min(220px, 70vw);
+      object-fit:contain;
+      filter:drop-shadow(0 2px 8px rgba(232,119,34,.28));
+    }
+    .logo-text{
+      font-size: clamp(18px, 4vw, 26px);
+      font-weight: 900;
+      letter-spacing: 2px;
+      display:none;
+    }
+
+    .header-sub{
+      font-size:11px;color:var(--text2);
+      letter-spacing:2px;text-transform:uppercase;margin-top:8px
+    }
+    .header-title{
+      font-size:clamp(18px, 4.8vw, 24px);
+      font-weight:900;color:var(--laranja);
+      letter-spacing:1px;text-transform:uppercase;margin-top:6px;
+      text-shadow:0 0 20px rgba(232,119,34,.35)
+    }
+    .header-date{
+      font-size:13px;color:var(--verde2);
+      font-weight:800;margin-top:6px;letter-spacing:.8px
+    }
+
+    .aviso{
+      background:linear-gradient(90deg,#7a0000,#c00,#7a0000);
+      color:#fff;text-align:center;
+      padding:10px 16px;
+      font-size:12px;font-weight:900;
+      letter-spacing:1.5px;text-transform:uppercase;
+      border-bottom:2px solid #ff0000;
+      animation:pulse-red 2s ease-in-out infinite;
+    }
+    @keyframes pulse-red{0%,100%{opacity:1}50%{opacity:.82}}
+
+    .status-banner{
+      background:var(--bg2);
+      border-bottom:1px solid var(--border);
+    }
+    .status-inner{
+      max-width: var(--maxw);
+      margin:0 auto;
+      padding:16px;
+      text-align:center;
+    }
+    .status-badge{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:10px 18px;border-radius:50px;
+      font-weight:900;font-size:13px;
+      letter-spacing:1.8px;text-transform:uppercase;
+      transition:all .3s;
+      border: 1px solid var(--border);
+    }
+    .status-badge.ativa{
+      background:linear-gradient(135deg,var(--verde),var(--verde2));
+      color:#fff;
+      box-shadow:0 0 20px rgba(45,106,39,.55);
+      border-color: rgba(45,106,39,.4);
+      animation:glow-green 2s ease-in-out infinite
+    }
+    @keyframes glow-green{0%,100%{box-shadow:0 0 20px rgba(45,106,39,.55)}50%{box-shadow:0 0 35px rgba(45,106,39,.85)}}
+    .status-badge.aguardando{background:linear-gradient(135deg,#2b2b2b,#404040);color:#e0e0e0}
+    .dot{width:10px;height:10px;border-radius:50%;background:#fff}
+    .dot.pulse{animation:dot-pulse 1s ease-in-out infinite}
+    @keyframes dot-pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.35);opacity:.7}}
+
+    .countdown-wrap{margin-top:10px;font-size:13px;color:var(--text2)}
+    .countdown{
+      font-size:clamp(20px, 6vw, 30px);
+      font-weight:900;
+      color:var(--laranja);
+      letter-spacing:2px;
+      font-variant-numeric:tabular-nums;
+      text-shadow:0 0 15px rgba(232,119,34,.45);
+      white-space:nowrap;
+    }
+    .countdown-label{font-size:11px;color:var(--text2);letter-spacing:1px;margin-top:2px}
+
+    nav.nav-cats{
+      background:var(--bg2);
+      border-bottom:1px solid var(--border);
+    }
+    .nav-inner{
+      max-width: var(--maxw);
+      margin:0 auto;
+      padding:12px 16px;
+      display:flex;gap:8px;
+      overflow-x:auto;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:none
+    }
+    .nav-inner::-webkit-scrollbar{display:none}
+    .cat-btn{
+      flex-shrink:0;
+      padding:9px 16px;
+      border-radius:999px;
+      border:1.5px solid var(--border);
+      background:var(--card);
+      color:var(--text2);
+      font-size:13px;
+      font-weight:800;
+      cursor:pointer;
+      transition:all .15s;
+      white-space:nowrap;
+      user-select:none;
+      letter-spacing:.4px;
+      touch-action: manipulation;
+    }
+    .cat-btn:active{transform:scale(.97)}
+    .cat-btn.active{
+      background:var(--laranja);
+      border-color:var(--laranja);
+      color:#fff;
+      box-shadow:0 4px 12px rgba(232,119,34,.35)
+    }
+
+    main.main{
+      padding:12px 12px 80px;
+    }
+    .main-inner{
+      max-width: var(--maxw);
+      margin:0 auto;
+    }
+
+    .section{display:none}
+    .section.active{display:block}
+    .section-header{
+      display:flex;align-items:center;gap:10px;
+      padding:14px 4px 10px;
+      flex-wrap:wrap;
+    }
+    .section-icon{font-size:22px}
+    .section-title{
+      font-size:18px;font-weight:900;color:var(--laranja);
+      text-transform:uppercase;letter-spacing:1px
+    }
+    .section-count{
+      font-size:12px;color:var(--text2);
+      background:var(--card);
+      padding:3px 10px;border-radius:50px;
+      border:1px solid var(--border)
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+      gap:12px;
+    }
+    @media (min-width: 900px){
+      .grid{ grid-template-columns:repeat(3, minmax(0, 1fr)); }
+    }
+    @media (min-width: 1200px){
+      .grid{ grid-template-columns:repeat(4, minmax(0, 1fr)); }
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:14px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      position:relative;
+      overflow:hidden;
+      box-shadow: 0 0 0 rgba(0,0,0,0);
+      min-width: 0;
+    }
+    .card::before{
+      content:'';
+      position:absolute;top:0;left:0;right:0;height:3px;
+      background:linear-gradient(90deg,var(--verde),var(--laranja))
+    }
+
+    .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;flex-wrap:wrap}
+    .cod-badge{
+      background:var(--bg3);color:var(--text2);
+      font-size:10px;font-weight:900;
+      padding:3px 8px;border-radius:6px;
+      border:1px solid var(--border);
+      letter-spacing:1px;
+      white-space:nowrap
+    }
+    .promo-tag{
+      background:linear-gradient(135deg,var(--verde),var(--verde2));
+      color:#fff;font-size:10px;font-weight:900;
+      padding:3px 10px;border-radius:6px;
+      letter-spacing:1px;text-transform:uppercase;
+      white-space:nowrap
+    }
+    .card-name{
+      font-size:13px;font-weight:800;color:var(--text);
+      line-height:1.35;
+      text-transform:uppercase;
+      letter-spacing:.3px;
+      word-break:break-word;
+      overflow-wrap:anywhere;
+    }
+    .card-price-label{
+      font-size:10px;color:var(--text2);
+      text-transform:uppercase;
+      letter-spacing:1px;
+      margin-bottom:-6px
+    }
+    .card-price{
+      font-size:clamp(20px, 5.5vw, 28px);
+      font-weight:900;
+      color:var(--laranja);
+      text-shadow:0 0 10px rgba(232,119,34,.25);
+      letter-spacing:.5px;
+      word-break:break-word;
+      overflow-wrap:anywhere;
+    }
+    .card-footer{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap}
+
+    .wpp-btn{
+      display:inline-flex;align-items:center;gap:8px;
+      background:linear-gradient(135deg,#128c7e,#25d366);
+      color:#fff;border:none;
+      border-radius:10px;
+      padding:10px 14px;
+      font-size:12px;font-weight:900;
+      cursor:pointer;text-decoration:none;
+      letter-spacing:.4px;
+      user-select:none;
+      touch-action: manipulation;
+      min-height: 40px;
+    }
+    .wpp-btn:active{transform:scale(.98);filter:brightness(1.05)}
+    .wpp-btn svg{width:16px;height:16px;fill:#fff;flex-shrink:0}
+
+    .footer{
+      text-align:center;
+      padding:24px 16px;
+      color:var(--text2);
+      font-size:11px;
+      border-top:1px solid var(--border);
+      background:var(--bg2);
+      letter-spacing:1px
+    }
+
+    .noscript{
+      max-width: var(--maxw);
+      margin: 14px auto 0;
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      background: #2a0000;
+      color: #fff;
+      border-radius: 10px;
+      font-weight: 800;
+      text-align:center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top-bar"></div>
+
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <!-- OFFLINE: coloque o arquivo "coagro-logo.svg" na mesma pasta do HTML -->
+        <img
+          id="coagroLogo"
+          src="coagro-logo.svg"
+          alt="Coagro"
+          loading="eager"
+        />
+        <div id="logoText" class="logo-text">COAGRO</div>
+      </div>
+
+      <div class="header-sub">Grupo Coagro — Uso Interno</div>
+      <div class="header-title">Sabadão Coagro</div>
+      <div class="header-date" id="promoDate">Promoção válida somente SÁBADO — --/--/----</div>
+    </div>
+  </header>
+
+  <div class="aviso">USO INTERNO — PROIBIDO POSTAR, DIVULGAR OU ENVIAR A CLIENTES</div>
+
+  <div class="status-banner" aria-live="polite">
+    <div class="status-inner">
+      <div id="status-badge" class="status-badge aguardando">
+        <div class="dot" id="dot"></div>
+        <span id="status-text">AGUARDANDO SÁBADO 00:00</span>
+      </div>
+
+      <div class="countdown-wrap">
+        <div id="countdown" class="countdown">--:--:--</div>
+        <div class="countdown-label" id="countdown-label">Carregando...</div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="nav-cats">
+    <div class="nav-inner" role="tablist" aria-label="Categorias">
+      <button class="cat-btn active" data-target="todos" type="button">🏪 TODOS</button>
+      <button class="cat-btn" data-target="pet" type="button">🐾 PET</button>
+      <button class="cat-btn" data-target="piscina" type="button">🏊 PISCINA</button>
+      <button class="cat-btn" data-target="agro" type="button">🌱 AGRO</button>
+      <button class="cat-btn" data-target="ferramentas" type="button">🔧 FERRAMENTAS</button>
+      <button class="cat-btn" data-target="tramontina" type="button">⚒️ TRAMONTINA</button>
+    </div>
+  </nav>
+
+  <noscript>
+    <div class="noscript">Ative o JavaScript para visualizar os produtos e usar as categorias/WhatsApp.</div>
+  </noscript>
+
+  <main class="main">
+    <div class="main-inner">
+      <section id="todos" class="section active" role="tabpanel">
+        <div class="section-header">
+          <span class="section-icon">🏪</span>
+          <span class="section-title">Todos os Produtos</span>
+          <span class="section-count" id="cnt-todos">0 itens</span>
+        </div>
+        <div class="grid" id="grid-todos"></div>
+      </section>
+
+      <section id="pet" class="section" role="tabpanel">
+        <div class="section-header">
+          <span class="section-icon">🐾</span>
+          <span class="section-title">Pet</span>
+          <span class="section-count" id="cnt-pet">0 itens</span>
+        </div>
+        <div class="grid" id="grid-pet"></div>
+      </section>
+
+      <section id="piscina" class="section" role="tabpanel">
+        <div class="section-header">
+          <span class="section-icon">🏊</span>
+          <span class="section-title">Piscina</span>
+          <span class="section-count" id="cnt-piscina">0 itens</span>
+        </div>
+        <div class="grid" id="grid-piscina"></div>
+      </section>
+
+      <section id="agro" class="section" role="tabpanel">
+        <div class="section-header">
+          <span class="section-icon">🌱</span>
+          <span class="section-title">Agro</span>
+          <span class="section-count" id="cnt-agro">0 itens</span>
+        </div>
+        <div class="grid" id="grid-agro"></div>
+      </section>
+
+      <section id="ferramentas" class="section" role="tabpanel">
+        <div class="section-header">
+          <span class="section-icon">🔧</span>
+          <span class="section-title">Ferramentas</span>
+          <span class="section-count" id="cnt-ferramentas">0 itens</span>
+        </div>
+        <div class="grid" id="grid-ferramentas"></div>
+      </section>
+
+      <section id="tramontina" class="section" role="tabpanel">
+        <div class="section-header">
+          <span class="section-icon">⚒️</span>
+          <span class="section-title">Tramontina</span>
+          <span class="section-count" id="cnt-tramontina">0 itens</span>
+        </div>
+        <div class="grid" id="grid-tramontina"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer" id="footerText">
+    COAGRO — Grupo Coagro · Promoção válida somente SÁBADO · Uso interno
+  </footer>
+
+  <script>
+    const produtos = [
+      {cat:'pet',cod:'18082',nome:'TUTTICANIS SELECT AD 23KG',preco:'R$‌ 98,90'},
+      {cat:'pet',cod:'18775',nome:'ORIGENS CLASS AD CN/FG 20KG',preco:'R$‌ 179,90'},
+      {cat:'pet',cod:'18248',nome:'RACAO MAGNUS TD PEQ PORTE CN/FG 15KG',preco:'R$‌ 105,90'},
+      {cat:'pet',cod:'19678',nome:'RACAO ORIGENS GATO CASTRADO SALMAO 10,1KG',preco:'R$‌ 179,90'},
+      {cat:'pet',cod:'12868',nome:'BISCROCK BISC CANINO MAXI 500G',preco:'R$‌ 22,50'},
+      {cat:'pet',cod:'9879',nome:'PEDIGREE SACHE FILH FRANGO 100GR',preco:'R$‌ 2,50'},
+      {cat:'pet',cod:'20964',nome:'OPT CAT SACHE AD SALMAO 85GR',preco:'R$‌ 2,50'},
+      {cat:'pet',cod:'1133',nome:'CARRAPATICIDA METILAMINA CHARMDOG 20ML',preco:'R$‌ 7,90'},
+      {cat:'pet',cod:'21963',nome:'RACAO
