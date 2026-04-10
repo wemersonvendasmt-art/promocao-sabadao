@@ -1,0 +1,205 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><title>🌾 Sabadão Coagro — Promoção FDS</title>
+
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}:root{--verde:#2d6a27;--verde2:#3a8a32;--laranja:#e87722;--laranja2:#ff9a3c;--bg:#0d0d0d;--bg2:#141414;--bg3:#1a1a1a;--card:#1e1e1e;--border:#2a2a2a;--text:#f0f0f0;--text2:#aaa;--radius:12px;--shadow:0 4px 24px rgba(0,0,0,.5)}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;min-height:100vh;overflow-x:hidden}
+
+.top-bar{height:4px;background:linear-gradient(90deg,var(--verde),var(--laranja),var(--verde));background-size:200% 100%;animation:slide 3s linear infinite}@keyframes slide{0%{background-position:0%}100%{background-position:200%}}
+
+header{background:linear-gradient(135deg,#0a1f09 0%,#0d0d0d 50%,#1a0f00 100%);padding:20px 16px 16px;text-align:center;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}header img{height:52px;max-width:180px;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(232,119,34,.3))}.header-sub{font-size:11px;color:var(--text2);letter-spacing:2px;text-transform:uppercase;margin-top:6px}.header-title{font-size:22px;font-weight:900;color:var(--laranja);letter-spacing:1px;text-transform:uppercase;margin-top:4px;text-shadow:0 0 20px rgba(232,119,34,.4)}.header-date{font-size:13px;color:var(--verde2);font-weight:700;margin-top:4px;letter-spacing:1px}
+
+.aviso{background:linear-gradient(90deg,#7a0000,#c00,#7a0000);color:#fff;text-align:center;padding:10px 16px;font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;border-bottom:2px solid #ff0000;animation:pulse-red 2s ease-in-out infinite}@keyframes pulse-red{0%,100%{opacity:1}50%{opacity:.8}}
+
+.status-banner{padding:16px;text-align:center;background:var(--bg2);border-bottom:1px solid var(--border)}.status-badge{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;border-radius:50px;font-weight:800;font-size:14px;letter-spacing:2px;text-transform:uppercase;transition:all .3s}.status-badge.ativa{background:linear-gradient(135deg,var(--verde),var(--verde2));color:#fff;box-shadow:0 0 20px rgba(45,106,39,.6);animation:glow-green 2s ease-in-out infinite}@keyframes glow-green{0%,100%{box-shadow:0 0 20px rgba(45,106,39,.6)}50%{box-shadow:0 0 35px rgba(45,106,39,.9)}}.status-badge.aguardando{background:linear-gradient(135deg,#333,#444);color:var(--text2)}.status-badge.encerrada{background:linear-gradient(135deg,#500,#800);color:#ff8888}.dot{width:10px;height:10px;border-radius:50%;background:#fff}.dot.pulse{animation:dot-pulse 1s ease-in-out infinite}@keyframes dot-pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.7}}.countdown-wrap{margin-top:10px;font-size:13px;color:var(--text2)}.countdown{font-size:28px;font-weight:900;color:var(--laranja);letter-spacing:3px;font-variant-numeric:tabular-nums;text-shadow:0 0 15px rgba(232,119,34,.5)}.countdown-label{font-size:11px;color:var(--text2);letter-spacing:1px;margin-top:2px}
+
+.nav-cats{display:flex;gap:8px;padding:12px 16px;overflow-x:auto;background:var(--bg2);border-bottom:1px solid var(--border);-webkit-overflow-scrolling:touch;scrollbar-width:none}.nav-cats::-webkit-scrollbar{display:none}.cat-btn{flex-shrink:0;padding:8px 18px;border-radius:50px;border:1.5px solid var(--border);background:var(--card);color:var(--text2);font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;white-space:nowrap;-webkit-user-select:none;user-select:none;letter-spacing:.5px}.cat-btn:active{transform:scale(.95)}.cat-btn.active{background:var(--laranja);border-color:var(--laranja);color:#fff;box-shadow:0 4px 12px rgba(232,119,34,.4)}
+
+.main{padding:12px 12px 80px}.section{display:none}.section.active{display:block}.section-header{display:flex;align-items:center;gap:10px;padding:14px 0 10px}.section-icon{font-size:24px}.section-title{font-size:18px;font-weight:900;color:var(--laranja);text-transform:uppercase;letter-spacing:1px}.section-count{font-size:12px;color:var(--text2);background:var(--card);padding:3px 10px;border-radius:50px;border:1px solid var(--border)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}@media(max-width:600px){.grid{grid-template-columns:1fr}}@media(min-width:900px){.grid{grid-template-columns:repeat(3,1fr)}}@media(min-width:1200px){.grid{grid-template-columns:repeat(4,1fr)}}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;display:flex;flex-direction:column;gap:10px;transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden}.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--verde),var(--laranja))}.card:active{transform:scale(.98)}.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}.cod-badge{background:var(--bg3);color:var(--text2);font-size:10px;font-weight:700;padding:3px 8px;border-radius:6px;border:1px solid var(--border);letter-spacing:1px;white-space:nowrap}.promo-tag{background:linear-gradient(135deg,var(--verde),var(--verde2));color:#fff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:6px;letter-spacing:1px;text-transform:uppercase;white-space:nowrap}.card-name{font-size:13px;font-weight:700;color:var(--text);line-height:1.4;text-transform:uppercase;letter-spacing:.3px}.card-price{font-size:26px;font-weight:900;color:var(--laranja);text-shadow:0 0 10px rgba(232,119,34,.3);letter-spacing:.5px}.card-price-label{font-size:10px;color:var(--text2);text-transform:uppercase;letter-spacing:1px;margin-bottom:-6px}.card-footer{display:flex;justify-content:flex-end}.wpp-btn{display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,#128c7e,#25d366);color:#fff;border:none;border-radius:8px;padding:9px 14px;font-size:12px;font-weight:800;cursor:pointer;text-decoration:none;letter-spacing:.5px;transition:all .2s;-webkit-user-select:none;user-select:none}.wpp-btn:active{transform:scale(.95);filter:brightness(1.1)}.wpp-btn svg{width:16px;height:16px;fill:#fff;flex-shrink:0}
+
+.footer{text-align:center;padding:24px 16px;color:var(--text2);font-size:11px;border-top:1px solid var(--border);background:var(--bg2);letter-spacing:1px}</style></head>
+
+<body><div class="top-bar"></div>
+
+<header><img src="https://www.grupocoagro.com/logos/Logo%20Coagro%20branco.svg" alt="Coagro" onerror="this.style.display='none';document.getElementById('logo-text').style.display='block'"><span id="logo-text" style="display:none;font-size:26px;font-weight:900;color:#fff;letter-spacing:2px">COAGRO</span><div class="header-sub">Grupo Coagro — Uso Interno</div><div class="header-title">🌾 Sabadão Coagro</div><div class="header-date">📅 Promoção válida somente SÁBADO — 12/04/2026</div></header>
+
+<div class="aviso">🚫 USO INTERNO — PROIBIDO POSTAR, DIVULGAR OU ENVIAR A CLIENTES 🚫</div>
+
+<div class="status-banner"><div id="status-badge" class="status-badge aguardando"><div class="dot" id="dot"></div><span id="status-text">⏳ AGUARDANDO SÁBADO</span></div><div class="countdown-wrap"><div id="countdown" class="countdown">--:--:--</div><div class="countdown-label" id="countdown-label">Carregando...</div></div></div>
+
+<nav class="nav-cats"><button class="cat-btn active" onclick="showSection('todos',this)">🏪 TODOS</button><button class="cat-btn" onclick="showSection('pet',this)">🐾 PET</button><button class="cat-btn" onclick="showSection('piscina',this)">🏊 PISCINA</button><button class="cat-btn" onclick="showSection('agro',this)">🌱 AGRO</button><button class="cat-btn" onclick="showSection('ferramentas',this)">🔧 FERRAMENTAS</button><button class="cat-btn" onclick="showSection('tramontina',this)">⚒️ TRAMONTINA</button></nav>
+
+<main class="main">
+
+<section id="todos" class="section active"><div class="section-header"><span class="section-icon">🏪</span><span class="section-title">Todos os Produtos</span><span class="section-count">64 itens</span></div><div class="grid" id="grid-todos"></div></section>
+
+<section id="pet" class="section"><div class="section-header"><span class="section-icon">🐾</span><span class="section-title">Pet</span><span class="section-count" id="cnt-pet"></span></div><div class="grid" id="grid-pet"></div></section>
+
+<section id="piscina" class="section"><div class="section-header"><span class="section-icon">🏊</span><span class="section-title">Piscina</span><span class="section-count" id="cnt-piscina"></span></div><div class="grid" id="grid-piscina"></div></section>
+
+<section id="agro" class="section"><div class="section-header"><span class="section-icon">🌱</span><span class="section-title">Agro</span><span class="section-count" id="cnt-agro"></span></div><div class="grid" id="grid-agro"></div></section>
+
+<section id="ferramentas" class="section"><div class="section-header"><span class="section-icon">🔧</span><span class="section-title">Ferramentas</span><span class="section-count" id="cnt-ferramentas"></span></div><div class="grid" id="grid-ferramentas"></div></section>
+
+<section id="tramontina" class="section"><div class="section-header"><span class="section-icon">⚒️</span><span class="section-title">Tramontina</span><span class="section-count" id="cnt-tramontina"></span></div><div class="grid" id="grid-tramontina"></div></section>
+
+</main><footer class="footer">🌾 COAGRO — Grupo Coagro · Promoção válida somente SÁBADO 12/04/2026 · Uso interno</footer>
+
+<script>
+
+const produtos = [
+
+{cat:'pet',cod:'18082',nome:'TUTTICANIS SELECT AD 23KG',preco:'R$ 98,90'},
+
+{cat:'pet',cod:'18775',nome:'ORIGENS CLASS AD CN/FG 20KG',preco:'R$ 179,90'},
+
+{cat:'pet',cod:'18248',nome:'RACAO MAGNUS TD PEQ PORTE CN/FG 15KG',preco:'R$ 105,90'},
+
+{cat:'pet',cod:'19678',nome:'RACAO ORIGENS GATO CASTRADO SALMAO 10,1KG',preco:'R$ 179,90'},
+
+{cat:'pet',cod:'12868',nome:'BISCROCK BISC CANINO MAXI 500G',preco:'R$ 22,50'},
+
+{cat:'pet',cod:'9879',nome:'PEDIGREE SACHE FILH FRANGO 100GR',preco:'R$ 2,50'},
+
+{cat:'pet',cod:'20964',nome:'OPT CAT SACHE AD SALMAO 85GR',preco:'R$ 2,50'},
+
+{cat:'pet',cod:'1133',nome:'CARRAPATICIDA METILAMINA CHARMDOG 20ML',preco:'R$ 7,90'},
+
+{cat:'pet',cod:'21963',nome:'RACAO GP GMT CAO AD TD OVELHA SCH 100G',preco:'R$ 3,15'},
+
+{cat:'pet',cod:'16799',nome:'RACAO GP SCH GMT CAO AD SALMAO 100G',preco:'R$ 2,99'},
+
+{cat:'pet',cod:'8005',nome:'RACAO WHISKAS SCH JELLY AD PEIXE 85GR',preco:'R$ 2,55'},
+
+{cat:'pet',cod:'7917',nome:'RACAO WHISKAS CARNE AO MOLHO 290GR',preco:'R$ 9,50'},
+
+{cat:'piscina',cod:'724',nome:'HTH REDUTOR DE ALCALINIDADE E PH 1LT',preco:'R$ 34,99'},
+
+{cat:'piscina',cod:'722',nome:'HTH ALGICIDA CHOQUE 1LT',preco:'R$ 33,90'},
+
+{cat:'piscina',cod:'7409',nome:'HTH ALGICIDA LIMPA BORDA 1LT',preco:'R$ 16,99'},
+
+{cat:'piscina',cod:'22610',nome:'HTH ELIMINA OLEOSIDADE FR 1L',preco:'R$ 23,50'},
+
+{cat:'piscina',cod:'721',nome:'HTH ALGICIDA CHOQUE 5LT',preco:'R$ 175,50'},
+
+{cat:'piscina',cod:'725',nome:'HTH ULTRACLEAR 1LT',preco:'R$ 30,50'},
+
+{cat:'piscina',cod:'701',nome:'HTH CLORO ADITIVADO 10 EM 1 10KG',preco:'R$ 279,90'},
+
+{cat:'piscina',cod:'18200',nome:'Q CLOR HIPER ACAO 10 KG',preco:'R$ 224,90'},
+
+{cat:'piscina',cod:'18201',nome:'Q CLOR ULTRA CLEAN 10KG',preco:'R$ 133,90'},
+
+{cat:'agro',cod:'85',nome:'ARAME FARPADO MOTTO 500MT',preco:'1un R$ 355,00 / A partir de 3un R$ 349,90'},
+
+{cat:'agro',cod:'1145',nome:'ANTIDIARREICO ANTIMICROBIANOS 10GR VALLE',preco:'R$ 3,55'},
+
+{cat:'agro',cod:'7184',nome:'FARELO DE SOJA 50KG',preco:'Consulte'},
+
+{cat:'agro',cod:'768',nome:'FOSBOVI 40',preco:'R$ 279,90'},
+
+{cat:'agro',cod:'773',nome:'FOSBOVI REPRODUCAO',preco:'R$ 214,90'},
+
+{cat:'agro',cod:'787',nome:'BOVIGOLD PLUS',preco:'R$ 185,90'},
+
+{cat:'agro',cod:'21688',nome:'OLEO MINERAL 1LT AGROCILLUS',preco:'Consulte'},
+
+{cat:'ferramentas',cod:'270',nome:'PULVERIZADOR AGRIC COSTAL MANUAL XP-20 20L',preco:'R$ 295,90'},
+
+{cat:'ferramentas',cod:'267',nome:'PULVERIZADOR AGRIC COSTAL MANUAL XP-16 16L',preco:'R$ 269,90'},
+
+{cat:'ferramentas',cod:'310',nome:'PULVERIZADOR COSTAL MANUAL XP-12 12LT',preco:'R$ 255,90'},
+
+{cat:'ferramentas',cod:'232',nome:'PULVERIZADOR COSTAL MANUAL PJH 20LT',preco:'R$ 421,90'},
+
+{cat:'ferramentas',cod:'18602',nome:'PICADOR C/ MOTOR MON. GP-1500ABI-1 1,5CV',preco:'R$ 1.291,90'},
+
+{cat:'ferramentas',cod:'18141',nome:'ESCADA ALUM 6 DEG REF-005104 MOR',preco:'R$ 201,90'},
+
+{cat:'ferramentas',cod:'5275',nome:'ESCADA ALUM 3 DEGRAUS REF-005101 MOR',preco:'R$ 110,90'},
+
+{cat:'ferramentas',cod:'5280',nome:'ESCADA BANQUETA',preco:'R$ 129,90'},
+
+{cat:'ferramentas',cod:'18137',nome:'ESCADA MULTIFUNCIONAL MOR 4X3',preco:'R$ 550,00'},
+
+{cat:'ferramentas',cod:'18138',nome:'ESCADA MULTIFUNCIONAL MOR 4X4',preco:'R$ 765,90'},
+
+{cat:'ferramentas',cod:'18139',nome:'ESCADA ALUM 4 DEGR REF005102 MOR',preco:'R$ 135,90'},
+
+{cat:'ferramentas',cod:'18140',nome:'ESCADA ALUM 5 DEGR REF005103 MOR',preco:'R$ 179,90'},
+
+{cat:'ferramentas',cod:'18141',nome:'ESCADA ALUM 6 DEGR REF005104 MOR',preco:'R$ 205,90'},
+
+{cat:'ferramentas',cod:'18142',nome:'ESCADA ALUM 7 DEGR REF005105 MOR',preco:'R$ 229,90'},
+
+{cat:'ferramentas',cod:'18143',nome:'ESCADA ALUM 8 DEG',preco:'R$ 259,90'},
+
+{cat:'ferramentas',cod:'20716',nome:'MOTOCOMPRESSOR 2.3PES HOBBY 1,3HP 127/220V',preco:'R$ 615,90'},
+
+{cat:'ferramentas',cod:'7758',nome:'BALANCA SEMI ROBERVAL INOX 16KG BRIAO',preco:'R$ 389,90'},
+
+{cat:'tramontina',cod:'19239',nome:'MANGUEIRA JARDIM FLEX 200MT 79165/520',preco:'R$ 2,54/mt'},
+
+{cat:'tramontina',cod:'14848',nome:'MANGUEIRA JARDIM FLEX ESP 200MT 79170/520',preco:'Consulte'},
+
+{cat:'tramontina',cod:'12905',nome:'MANGUEIRA JARDIM FLEX ESP 100MT 79170/510',preco:'Consulte'},
+
+{cat:'tramontina',cod:'570',nome:'FOICINHA C/ DENTE 77684/255 TRAMONTINA',preco:'R$ 19,99'},
+
+{cat:'tramontina',cod:'535',nome:'ENXADAO 2.0 FORJ LARGO 77270/204',preco:'R$ 37,99'},
+
+{cat:'tramontina',cod:'465',nome:'PA QUADRADA 03 C/ CABO 71CM 77464/434',preco:'R$ 29,99'},
+
+{cat:'tramontina',cod:'14317',nome:'ENXADA LARGA 2,5 LEVE 77214/254',preco:'R$ 31,99'},
+
+{cat:'tramontina',cod:'536',nome:'ENXADAO 2.0 FORJ ESTREITO 77272/204',preco:'R$ 33,99'},
+
+{cat:'tramontina',cod:'500',nome:'ENXADAO 2,5 FORJ ESTREITO 77272/254',preco:'R$ 34,99'},
+
+{cat:'tramontina',cod:'14330',nome:'ENXADA 2,0 LARGA 77214/204',preco:'R$ 32,99'},
+
+{cat:'tramontina',cod:'499',nome:'ENXADAO 2,5 FORJ LARGO 77270/254',preco:'R$ 34,99'},
+
+{cat:'tramontina',cod:'531',nome:'PICARETA CHIBANCA C/ CABO 77305/543',preco:'R$ 74,99'},
+
+{cat:'tramontina',cod:'600',nome:'CAVADEIRA ARTIC 1,10CM 77559/524',preco:'R$ 49,99'},
+
+{cat:'tramontina',cod:'630',nome:'CAVADEIRA ARTIC C/CABO 1,20CM 77562/803',preco:'R$ 79,99'},
+
+{cat:'tramontina',cod:'601',nome:'CAVADEIRA ARTIC 1,20CM 77562/503',preco:'R$ 64,99'},
+
+{cat:'tramontina',cod:'612',nome:'CAVADEIRA ARTIC 1,80CM 77571/803',preco:'R$ 99,99'},
+
+{cat:'tramontina',cod:'610',nome:'FOICE ROCADEIRA 77600/115',preco:'R$ 22,99'},
+
+{cat:'tramontina',cod:'533',nome:'PICARETA ESTREITA C/ CABO 77300/543',preco:'R$ 74,99'}
+
+];
+
+const WPP_NUM = '558281128991';
+
+function wppMsg(nome, preco) { return encodeURIComponent('Olhe só que condição especial da COAGRO neste produto *' + nome + '* VALOR *' + preco + '*, fale comigo agora e aproveite este precinho especial que só quem tem é COAGRO! 🌾'); }
+
+function wppLink(nome, preco) { const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent); const base = isMobile ? 'whatsapp://send' : 'https://wa.me/' + WPP_NUM; return isMobile ? base + '?phone=' + WPP_NUM + '&text=' + wppMsg(nome, preco) : base + '?text=' + wppMsg(nome, preco); }
+
+function cardHTML(p) { return '<div class="card"><div class="card-top"><span class="cod-badge">CÓD ' + p.cod + '</span><span class="promo-tag">🏷️ PROMO</span></div><div class="card-name">' + p.nome + '</div><div class="card-price-label">Preço Promoção Loja</div><div class="card-price">' + p.preco + '</div><div class="card-footer"><a class="wpp-btn" href="' + wppLink(p.nome, p.preco) + '" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.535 5.858L.057 23.486a.5.5 0 00.614.614l5.628-1.478A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.795 9.795 0 01-5.003-1.373l-.36-.213-3.724.977.997-3.645-.234-.374A9.775 9.775 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg> Enviar WhatsApp</a></div></div>'; }
+
+function buildGrids() { const cats = ['pet','piscina','agro','ferramentas','tramontina']; const allGrid = document.getElementById('grid-todos'); cats.forEach(cat => { const grid = document.getElementById('grid-' + cat); const filtered = produtos.filter(p => p.cat === cat); document.getElementById('cnt-' + cat).textContent = filtered.length + ' itens'; filtered.forEach(p => { grid.innerHTML += cardHTML(p); allGrid.innerHTML += cardHTML(p); }); }); }
+
+function showSection(id, btn) { document.querySelectorAll('.section').forEach(s => s.classList.remove('active')); document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active')); document.getElementById(id).classList.add('active'); btn.classList.add('active'); window.scrollTo({top: 0, behavior: 'smooth'}); }
+
+function isSabado() { const now = new Date(); return now.getDay() === 6; }
+
+function nextSabado() { const now = new Date(); const day = now.getDay(); const diff = day === 6 ? 7 : (6 - day); const next = new Date(now); next.setDate(now.getDate() + diff); next.setHours(0, 0, 0, 0); return next; }
+
+function endSabado() { const now = new Date(); const end = new Date(now); end.setHours(23, 59, 59, 999); return end; }
+
+function pad(n) { return String(n).padStart(2, '0'); }
+
+function updateStatus() { const badge = document.getElementById('status-badge'); const statusText = document.getElementById('status-text'); const dot = document.getElementById('dot'); const countdown = document.getElementById('countdown'); const label = document.getElementById('countdown-label'); const now = new Date(); if (isSabado()) { badge.className = 'status-badge ativa'; dot.className = 'dot pulse'; statusText.textContent = '🟢 PROMOÇÃO ATIVA AGORA!'; const diff = endSabado() - now; const h = Math.floor(diff / 3600000); const m = Math.floor((diff % 3600000) / 60000); const s = Math.floor((diff % 60000) / 1000); countdown.textContent = pad(h) + ':' + pad(m) + ':' + pad(s); countdown.style.color = '#25d366'; label.textContent = 'Encerra hoje à meia-noite'; } else { badge.className = 'status-badge aguardando'; dot.className = 'dot'; statusText.textContent = '⏳ AGUARDANDO SÁBADO'; const diff = nextSabado() - now; const days = Math.floor(diff / 86400000); const h = Math.floor((diff % 86400000) / 3600000); const m = Math.floor((diff % 3600000) / 60000); const s = Math.floor((diff % 60000) / 1000); countdown.textContent = (days > 0 ? days + 'd ' : '') + pad(h) + ':' + pad(m) + ':' + pad(s); countdown.style.color = '#e87722'; label.textContent = 'Faltam para o Sabadão Coagro'; } }
+
+buildGrids(); updateStatus(); setInterval(updateStatus, 1000);
+
+</script></body></html>
